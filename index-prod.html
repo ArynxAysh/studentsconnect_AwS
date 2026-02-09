@@ -6,9 +6,9 @@
 
 <style>
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: "Segoe UI", Arial, sans-serif;
 }
 
@@ -17,20 +17,14 @@ body {
     padding: 40px;
 }
 
-/* MAIN CONTAINER */
+/* CONTAINER */
 .container {
     max-width: 1200px;
     margin: auto;
     display: flex;
-    border-radius: 18px;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-    animation: fadeIn 0.8s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    box-shadow: 0 25px 60px rgba(0,0,0,0.7);
 }
 
 /* LEFT PANEL */
@@ -43,19 +37,18 @@ body {
 }
 
 .profile-pic {
-    width: 140px;
-    height: 140px;
-    border-radius: 18px;
-    background: #ccc;
-    margin: auto auto 20px;
-    background-image: url("https://via.placeholder.com/300");
+    width: 150px;
+    height: 150px;
+    border-radius: 20px;
+    background-image: url("https://i.ibb.co/M5MPfXns/profile.jpg");
     background-size: cover;
     background-position: center;
+    margin: auto auto 20px;
     transition: transform 0.4s ease;
 }
 
 .profile-pic:hover {
-    transform: scale(1.05);
+    transform: scale(1.06);
 }
 
 .left h1 {
@@ -63,32 +56,33 @@ body {
 }
 
 .left span {
-    font-style: italic;
     color: #aaa;
-}
-
-.left p {
-    margin-top: 10px;
+    font-style: italic;
     font-size: 14px;
 }
 
-/* NAV LINKS */
+.left p {
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+/* NAV */
 .nav {
-    margin-top: 30px;
+    margin-top: 35px;
 }
 
 .nav a {
     display: block;
-    margin: 10px 0;
     color: #9eff00;
     text-decoration: none;
+    margin: 12px 0;
     font-size: 14px;
-    transition: transform 0.3s, color 0.3s;
     cursor: pointer;
+    transition: transform 0.3s, color 0.3s;
 }
 
 .nav a:hover {
-    transform: translateX(6px);
+    transform: translateX(8px);
     color: #caff4d;
 }
 
@@ -96,13 +90,13 @@ body {
 .right {
     width: 65%;
     background: #d9ff8f;
-    padding: 40px;
+    padding: 45px;
     overflow-y: auto;
 }
 
 /* SECTIONS */
 .section {
-    margin-bottom: 30px;
+    margin-bottom: 35px;
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.6s ease;
@@ -117,43 +111,32 @@ body {
     font-size: 13px;
     letter-spacing: 2px;
     color: #333;
+    margin-bottom: 6px;
 }
 
 .section h3 {
-    font-size: 24px;
-    margin: 10px 0;
+    font-size: 26px;
+    margin-bottom: 12px;
 }
 
 .section p, li {
     font-size: 15px;
-    line-height: 1.6;
+    line-height: 1.7;
+    color: #222;
 }
 
 ul {
     padding-left: 20px;
 }
 
-/* EXPANDABLE */
-.expand {
-    cursor: pointer;
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-.expand-content {
-    display: none;
-    margin-top: 10px;
-}
-
-/* HR */
 hr {
     border: none;
     border-top: 1px solid #333;
-    margin: 20px 0;
+    margin: 25px 0;
 }
 
-/* MOBILE */
-@media(max-width: 900px) {
+/* RESPONSIVE */
+@media (max-width: 900px) {
     .container {
         flex-direction: column;
     }
@@ -168,7 +151,7 @@ hr {
 
 <div class="container">
 
-    <!-- LEFT -->
+    <!-- LEFT PANEL -->
     <div class="left">
         <div class="profile-pic"></div>
         <h1>Aryan Ayush</h1>
@@ -176,23 +159,25 @@ hr {
         <p>CS Undergraduate<br>Cloud Computing</p>
 
         <div class="nav">
-            <a onclick="scrollToSection('about')">ABOUT</a>
-            <a onclick="scrollToSection('education')">EDUCATION</a>
-            <a onclick="scrollToSection('experience')">EXPERIENCE</a>
-            <a onclick="scrollToSection('projects')">PROJECTS</a>
-            <a onclick="scrollToSection('certs')">CERTIFICATIONS</a>
+            <a onclick="go('about')">ABOUT</a>
+            <a onclick="go('education')">EDUCATION</a>
+            <a onclick="go('experience')">EXPERIENCE</a>
+            <a onclick="go('projects')">PROJECTS</a>
+            <a onclick="go('certifications')">CERTIFICATIONS</a>
         </div>
     </div>
 
-    <!-- RIGHT -->
-    <div class="right" id="content">
+    <!-- RIGHT PANEL -->
+    <div class="right">
 
         <div class="section active" id="about">
             <h2>ABOUT ME</h2>
             <h3>More Than Just Code</h3>
             <p>
                 Computer Science undergraduate specializing in Cloud Computing with
-                strong DSA skills in C++. Experienced in AWS, OS, DBMS, CN, and ML workflows.
+                strong proficiency in Data Structures and Algorithms using C++.
+                Experienced in AWS, Operating Systems, DBMS, Computer Networks,
+                and machine learning workflows.
             </p>
         </div>
 
@@ -200,12 +185,12 @@ hr {
 
         <div class="section" id="education">
             <h2>EDUCATION</h2>
-            <p><b>Parul University</b><br>B.Tech CSE (Cloud Computing) — CGPA: 7.57</p>
-            <p class="expand" onclick="toggleExpand(this)">View School Details ▼</p>
-            <div class="expand-content">
-                <p>HSC (Science) — 61.2%</p>
-                <p>SSC — 82.4%</p>
-            </div>
+            <p><b>Parul University</b> — Vadodara</p>
+            <p>B.Tech in Computer Science & Engineering (Cloud Computing)</p>
+            <p>CGPA: <b>7.57</b> (5th Semester)</p>
+
+            <p style="margin-top:10px;"><b>Chauhan Public School</b> — HSC (Science): 61.2%</p>
+            <p><b>Saint Teresa's School</b> — SSC: 82.4%</p>
         </div>
 
         <hr>
@@ -213,10 +198,12 @@ hr {
         <div class="section" id="experience">
             <h2>EXPERIENCE</h2>
             <p><b>Data Analyst Intern — MEDTOUREASY</b></p>
+            <p><i>May 2025 – Present</i></p>
             <ul>
-                <li>Built ML-based blood donation prediction system</li>
-                <li>Improved accuracy by ~15–20%</li>
-                <li>Data cleaning using Pandas & NumPy</li>
+                <li>Developed ML-based blood donation prediction system</li>
+                <li>Improved prediction accuracy by ~15–20%</li>
+                <li>Data cleaning & preprocessing using Pandas and NumPy</li>
+                <li>Converted insights into actionable outcomes</li>
             </ul>
         </div>
 
@@ -225,15 +212,15 @@ hr {
         <div class="section" id="projects">
             <h2>PROJECTS</h2>
             <ul>
-                <li>Blood Donation Prediction System (ML + AWS)</li>
-                <li>AWS EC2 & S3 Deployment</li>
-                <li>DSA Practice (C++)</li>
+                <li><b>Blood Donation Prediction System</b> — ML, Pandas, Scikit-learn, AWS EC2 & S3</li>
+                <li><b>AWS Cloud Deployment Project</b> — EC2, IAM, S3</li>
+                <li><b>DSA Practice & Competitive Programming</b> — C++, Trees, Graphs, DP</li>
             </ul>
         </div>
 
         <hr>
 
-        <div class="section" id="certs">
+        <div class="section" id="certifications">
             <h2>CERTIFICATIONS</h2>
             <p>Google Data Analytics Professional Certificate — Coursera</p>
         </div>
@@ -242,10 +229,9 @@ hr {
 </div>
 
 <script>
-function scrollToSection(id) {
+function go(id) {
     document.getElementById(id).scrollIntoView({
-        behavior: "smooth",
-        block: "start"
+        behavior: "smooth"
     });
 
     document.querySelectorAll(".section").forEach(sec => {
@@ -255,16 +241,6 @@ function scrollToSection(id) {
     setTimeout(() => {
         document.getElementById(id).classList.add("active");
     }, 200);
-}
-
-function toggleExpand(el) {
-    const content = el.nextElementSibling;
-    content.style.display =
-        content.style.display === "block" ? "none" : "block";
-    el.textContent =
-        content.style.display === "block"
-            ? "Hide Details ▲"
-            : "View School Details ▼";
 }
 </script>
 
