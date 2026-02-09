@@ -11,7 +11,7 @@ on:
         type: string
 env:
   AWS_REGION: ap-south-1
-  S3_BUCKET: "demoaryanayush"
+  S3_BUCKET: "aryanassignment2"
 
 permissions:
   contents: read
